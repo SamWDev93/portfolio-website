@@ -1,0 +1,33 @@
+---
+import IconMoon from "@tabler/icons/outline/moon.svg";
+import IconSun from "@tabler/icons/outline/sun.svg";
+import { Button } from "@/components/starwind/button";
+---
+
+<Button
+  variant="ghost"
+  size="icon"
+  class="theme-toggle-btn [&_svg]:size-5"
+  aria-label="Toggle light/dark mode"
+  type="button"
+>
+  <IconMoon class="dark:hidden" aria-hidden="true" />
+  <IconSun class="hidden dark:block" aria-hidden="true" />
+</Button>
+
+<script>
+  function initThemeToggle() {
+    document.querySelectorAll(".theme-toggle-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initThemeToggle);
+  } else {
+    initThemeToggle();
+  }
+</script>
