@@ -3,6 +3,18 @@ import { Font } from 'astro:assets';
 import Footer from "@/components/starwind/footer/Footer.astro";
 import Navbar from "@/components/starwind/navbar/Navbar.astro";
 import "@/styles/starwind.css";
+
+interface Props {
+	title: string;
+	description: string;
+	keywords: string[];
+}
+
+const {
+	title,
+	description,
+	keywords
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -19,7 +31,9 @@ import "@/styles/starwind.css";
 		</script>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Sam Welsh | Portfolio</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords.join(", ")} />
 		<Font cssVariable="--font-teko" preload />
 		<Font cssVariable="--font-inter" preload />
 	</head>
