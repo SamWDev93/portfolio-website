@@ -38,7 +38,7 @@ interface Props extends HTMLAttributes<"nav"> {
 
 // you could also swap "sticky" for "fixed"
 const navStyles = tv({
-  base: "bg-background/60 sticky @container inset-x-0 top-0 z-50 border-b backdrop-blur",
+  base: "bg-background/80 sticky @container inset-x-0 top-0 z-50 border-b border-slate-200 dark:border-slate-800 backdrop-blur-md",
 });
 
 const {
@@ -59,7 +59,7 @@ const hasLogoSlot = Astro.slots.has("logo");
         hasLogoSlot ? (
           <slot name="logo" />
         ) : (
-          <a href="/" class="text-lg font-semibold">
+          <a href="/" class="font-teko text-2xl font-semibold uppercase tracking-wide text-foreground hover:text-accent transition-colors">
             {siteName}
           </a>
         )
@@ -72,7 +72,7 @@ const hasLogoSlot = Astro.slots.has("logo");
         links.map((link) => (
           <a
             href={link.href}
-            class="text-muted-foreground hover:text-foreground rounded-md px-3 py-2 text-sm font-medium transition-colors"
+            class="text-slate-600 dark:text-slate-400 hover:text-foreground rounded-md px-3 py-2 text-sm font-medium transition-colors"
           >
             {link.label}
           </a>
@@ -110,7 +110,7 @@ const hasLogoSlot = Astro.slots.has("logo");
                 <SheetClose asChild>
                   <a
                     href={link.href}
-                    class="text-muted-foreground hover:text-foreground -mx-3 rounded-md px-3 py-2 text-lg font-medium transition-colors"
+                    class="text-slate-600 dark:text-slate-400 hover:text-foreground -mx-3 rounded-md px-3 py-2 text-lg font-medium transition-colors"
                   >
                     {link.label}
                   </a>
