@@ -1,6 +1,38 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
+import IconArrowRight from "@tabler/icons/outline/arrow-right.svg";
 ---
 
-<Layout>
+<Layout
+	title="Sam Welsh | Portfolio"
+	description="I build scalable web applications and digital platforms, turning complex requirements into reliable, well-crafted products."
+	keywords={["Sam Welsh", "Portfolio", "Software Developer", "Web Developer", "Digital Platforms", "Web Applications"]}
+>
+	<section class="h-full flex items-center justify-center p-4">
+		<div class="flex flex-col items-center justify-center flex-1 gap-4 max-w-2xl">
+			<!-- Main headline -->
+			<h1 class="font-teko text-5xl text-center font-semibold uppercase leading-[0.95] tracking-wide sm:text-6xl md:text-7xl lg:text-8xl">
+				Hey, I'm <span class="text-accent">Sam Welsh</span>
+				<br />
+				<span class="text-slate-500 dark:text-slate-400">Software Developer</span>
+			</h1>
+
+			<!-- Subtext -->
+			<p class="text-lg text-center leading-relaxed text-slate-600 dark:text-slate-400 sm:text-xl">
+				I build scalable web applications and digital platforms, turning complex requirements into reliable, well-crafted products.
+			</p>
+
+			<!-- CTAs -->
+			<div class="flex flex-wrap items-center justify-center gap-4 sm:flex-row">
+				<Button href="/about" size="lg" class="group w-full sm:w-auto">
+					Find Out More About Me
+				</Button>
+				<Button href="/projects" variant="outline" size="lg" class="w-full sm:w-auto">
+          View My Work
+					<IconArrowRight class="transition-transform group-hover:translate-x-0.5" />
+				</Button>
+			</div>
+		</div>
+	</section>
 </Layout>
