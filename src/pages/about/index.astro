@@ -1,6 +1,180 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/starwind/card';
+import { Badge } from '@/components/starwind/badge';
+import { Separator } from '@/components/starwind/separator';
+import { Button } from '@/components/starwind/button';
+
+import IconCode from "@tabler/icons/outline/code.svg";
+import IconServer from "@tabler/icons/outline/server.svg";
+import IconLayoutDashboard from "@tabler/icons/outline/layout-dashboard.svg";
+import IconArrowRight from "@tabler/icons/outline/arrow-right.svg";
+
+// Skills data for cleaner template
+const frontendSkills = [
+  "HTML5", "CSS3", "SASS/SCSS", "JavaScript", "TypeScript", 
+  "React", "Next.js", "Astro", "Aurelia"
+];
+
+const backendSkills = [
+  "C#", ".NET 5+", ".NET Core", ".NET Framework", "REST APIs"
+];
+
+const cmsSkills = [
+  "Umbraco (v7, v8, v13)", "Payload CMS", "WordPress",
+  "Component-based CMS", "Content workflows", "Publishing pipelines"
+];
 ---
 
-<Layout>
+<Layout
+  title="About Me | Sam Welsh"
+  description="Learn more about Sam Welsh - an experienced Software Developer specialising in modern web solutions, CMS platforms, and full-stack development."
+  keywords={["About", "Sam Welsh", "Software Developer", "Web Developer", "JavaScript", "TypeScript", "React", ".NET", "CMS", "Full-stack Development"]}
+>
+  <div class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      
+      <!-- Hero Section -->
+      <section class="text-center mb-8">
+        <h1 class="font-teko text-5xl font-semibold uppercase tracking-wide text-foreground sm:text-6xl md:text-7xl mb-6">
+          About <span class="text-accent">Me</span>
+        </h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed sm:text-xl">
+          I'm an experienced Software Developer with a background in delivering modern web solutions across a wide range of projects.
+        </p>
+      </section>
+
+      <!-- Profile Section -->
+      <section class="mb-16">
+        <Card class="overflow-hidden">
+          <div class="relative">
+            <!-- Decorative gradient bar -->
+            <div class="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-accent via-accent to-accent"></div>
+          </div>
+          <CardContent class="p-8 sm:p-10">
+            <div class="space-y-6 text-slate-700 dark:text-slate-300 leading-relaxed">
+              <p>
+                Currently working within a digital agency environment, I build, maintain and support 
+                scalable and secure solutions for healthcare clients using a broad 
+                technology stack across modern JavaScript frameworks and the .NET ecosystem.
+              </p>
+              <p>
+                My role is highly varied, spanning component-based front-end development, backend services, integrations, CMS platforms (including Umbraco), and ongoing platform support. 
+                I enjoy taking ownership of work from requirements gathering through to delivery, optimisation 
+                and continuous improvement, ensuring solutions are robust, accessible 
+                and aligned with stakeholder needs.
+              </p>
+              <p>
+                I bring a combination of strong technical capability and excellent stakeholder-facing skills, 
+                developed through my earlier career in IT recruitment. This enables me to work confidently 
+                with both technical and non-technical colleagues, translate requirements into practical solutions, 
+                manage priorities effectively, and provide clear guidance and support.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <!-- Skills Section Header -->
+      <section class="mb-8">
+        <div class="flex items-center gap-4 mb-2">
+          <h2 class="font-teko text-3xl font-semibold uppercase tracking-wide text-foreground sm:text-4xl">
+            Core Knowledge & Skills
+          </h2>
+        </div>
+        <p class="text-slate-600 dark:text-slate-400">
+          A snapshot of my technical expertise across the full stack.
+        </p>
+      </section>
+
+      <!-- Skills Grid -->
+      <section class="grid gap-6 md:grid-cols-3 mb-16">
+        
+        <!-- Frontend Card -->
+        <Card class="group hover:shadow-lg transition-shadow duration-300">
+          <CardHeader class="pb-4">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                <IconCode class="size-6" />
+              </div>
+              <CardTitle class="font-teko text-2xl uppercase tracking-wide">Frontend</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent class="pt-0">
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+              Building responsive, accessible interfaces with modern frameworks and tooling.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {frontendSkills.map((skill) => (
+                <Badge variant="outline" size="sm" class="hover:bg-accent hover:text-white hover:border-accent transition-colors">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <!-- Backend Card -->
+        <Card class="group hover:shadow-lg transition-shadow duration-300">
+          <CardHeader class="pb-4">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                <IconServer class="size-6" />
+              </div>
+              <CardTitle class="font-teko text-2xl uppercase tracking-wide">Backend</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent class="pt-0">
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+              Creating robust APIs and services with a focus on performance and security.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {backendSkills.map((skill) => (
+                <Badge variant="outline" size="sm" class="hover:bg-accent hover:text-white hover:border-accent transition-colors">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <!-- CMS Card -->
+        <Card class="group hover:shadow-lg transition-shadow duration-300">
+          <CardHeader class="pb-4">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                <IconLayoutDashboard class="size-6" />
+              </div>
+              <CardTitle class="font-teko text-2xl uppercase tracking-wide">CMS & Platforms</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent class="pt-0">
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+              Deep expertise in content management systems and publishing workflows.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {cmsSkills.map((skill) => (
+                <Badge variant="outline" size="sm" class="hover:bg-accent hover:text-white hover:border-accent transition-colors">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="text-center">
+        <Separator class="mb-12" />
+        <p class="text-slate-600 dark:text-slate-400 mb-6 text-lg">
+          Want to see what I've been working on?
+        </p>
+        <Button href="/projects" size="lg" class="group">
+          View My Projects
+          <IconArrowRight class="transition-transform group-hover:translate-x-0.5" />
+        </Button>
+      </section>
+
+    </div>
+  </div>
 </Layout>
